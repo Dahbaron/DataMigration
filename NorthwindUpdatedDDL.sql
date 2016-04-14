@@ -28,24 +28,24 @@ drop table Countries;
 
 create table Countries (
   CountryID int primary key,
-  CountryName varchar(30)
+  CountryName varchar(30) not null
 );
 
 create table Warehouses (
   WarehouseID int primary key,
-  WarehouseName varchar(20),
+  WarehouseName varchar(20) not null,
   Address varchar(60)
 );
 
 create table Categories (
   CategoryID int primary key,
-  CategoryName varchar(15),
+  CategoryName varchar(15) not null,
   Description varchar(255)  
 );
 
 create table Suppliers (
   SupplierID int primary key,
-  CompanyName varchar(40),
+  CompanyName varchar(40) not null,
   ContactName varchar(30),
   ContactTitle varchar(30),
   Address varchar(60),
@@ -60,7 +60,7 @@ create table Suppliers (
 
 create table Products (
   ProductID int primary key,
-  ProductName varchar(40),
+  ProductName varchar(40) not null,
   CategoryID int references Categories(CategoryID),
   SupplierID int references Suppliers(SupplierID),
   QuantityPerUnit int,
@@ -72,22 +72,22 @@ create table Products (
 create table Product_Location (
   ProductID int references Products(ProductID),
   WarehouseID int references Warehouses(WarehouseID),
-  UnitsInStock int,
-  ReorderLevel int,
-  UnitsOnOrder int,
+  UnitsInStock int not null,
+  ReorderLevel int not null,
+  UnitsOnOrder int not null,
   constraint pl_pk primary key (ProductID, WarehouseID)
 );
 
 create table Shippers (
   ShipperID int primary key,
-  CompanyName varchar(40),
+  CompanyName varchar(40) not null,
   Phone varchar(24)
 );
 
 create table Customers (
   CustomerID int primary key,
-  CustomerCode varchar(5),
-  CompanyName varchar(40),
+  CustomerCode varchar(5) not null,
+  CompanyName varchar(40) not null,
   ContactName varchar(30),
   Address varchar(60),
   City varchar(15),
@@ -100,8 +100,8 @@ create table Customers (
 
 create table Employees (
   EmployeeID int primary key,
-  LastName varchar(20),
-  FirstName varchar(10),
+  LastName varchar(20) not null,
+  FirstName varchar(10) not null,
   Title varchar(30),
   TitleOfCourtesy varchar(25),
   NameAndTitle varchar(55),
@@ -120,13 +120,13 @@ create table Employees (
 
 create table Region (
   RegionID int primary key,
-  RegionDescription varchar(50)
+  RegionDescription varchar(50) not null
 );
 
 create table Territories (
   TerritoryID int primary key,
-  TerritoryDescription varchar(50),
-  RegionID int references Region(RegionID)
+  TerritoryDescription varchar(50) not null,
+  RegionID int references Region(RegionID) not null
 );
 
 create table EmployeeTerritories (
@@ -156,8 +156,8 @@ create table Orders (
 create table Order_Details (
   ProductID int references Products(ProductID),
   OrderID int references Orders(OrderID),
-  Quantity int,
-  Discount number(6, 2),
-  UnitPrice number (6,2),
+  Quantity int not null,
+  Discount number(6, 2) not null,
+  UnitPrice number (6,2) not null,
   constraint od_pk primary key(ProductID, OrderID)
 );
