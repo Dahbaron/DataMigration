@@ -7,6 +7,7 @@
 /*
   DROPS
 */
+-- Table
 drop table Order_Details;
 drop table Orders;
 drop table EmployeeTerritories;
@@ -22,13 +23,62 @@ drop table Categories;
 drop table Warehouses;
 drop table Countries;
 
+--sequences
+drop sequence OrderID_seq;
+drop sequence TerritoryID_seq;
+drop sequence RegionID_seq;
+drop sequence EmployeeID_seq;
+drop sequence CustomerID_seq;
+drop sequence ShipperID_seq;
+drop sequence ProductID_seq;
+drop sequence SupplierID_seq;
+drop sequence CategoryID_seq;
+drop sequence WarehouseID_seq;
+drop sequence CountryID_seq;
+
+/*
+  SEQUENCES
+*/
+create sequence CountryID_seq
+start with 1;
+
+create sequence WarehouseID_seq
+start with 1;
+
+create sequence CategoryID_seq
+start with 1;
+
+create sequence SupplierID_seq
+start with 1;
+
+create sequence ProductID_seq
+start with 1;
+
+create sequence ShipperID_seq
+start with 1;
+
+create sequence CustomerID_seq
+start with 1;
+
+create sequence EmployeeID_seq
+start with 1;
+
+create sequence RegionID_seq
+start with 1;
+
+create sequence TerritoryID_seq
+start with 1;
+
+create sequence OrderID_seq
+start with 1;
+
 /*
   TABLES
 */
 
 create table Countries (
   CountryID int primary key,
-  CountryName varchar(30) not null
+  CountryName varchar(32) not null
 );
 
 create table Warehouses (
@@ -161,3 +211,5 @@ create table Order_Details (
   UnitPrice number (6,2) not null,
   constraint od_pk primary key(ProductID, OrderID)
 );
+
+commit;
