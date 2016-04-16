@@ -35,15 +35,11 @@ insert into Warehouses values (WarehouseID_seq.nextval, 'Dockside warehouse', '2
 insert into Warehouses values (WarehouseID_seq.nextval, 'Central warehouse', '27 Main St.');
 
 --Countries NOT WORKING
-insert into northwind.Countries
-values (CountryID_seq.nextval,
-  (select * from
-    --returns list of countries not in new table
-    (select distinct northwindOLD.oldCust.country
-     from northwindOLD.customers oldCust))
-);
+select distinct northwindOLD.customers.country
+from northwindOLD.customers
+order by northwindOLD.customers.country
+;
 
-insert into northwind.countries values (1, 'Argentina');
 
 --Categories
 insert into northwind.Shippers select * from northwindOLD.SHIPPERS;
