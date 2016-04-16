@@ -1,7 +1,7 @@
 /*
+  Database Definition
   Author: Niko Bentley
   Description: DDL Script for DBAS 1100 Final Project
-
 */
 
 /*
@@ -113,7 +113,7 @@ create table Products (
   ProductName varchar(40) not null,
   CategoryID int references Categories(CategoryID),
   SupplierID int references Suppliers(SupplierID),
-  QuantityPerUnit int,
+  QuantityPerUnit varchar(20),
   UnitPrice number(6, 2),
   Discontinued number(1),
   constraint chk_discontinued check(Discontinued in (0,1))
@@ -139,6 +139,7 @@ create table Customers (
   CustomerCode varchar(5) not null,
   CompanyName varchar(40) not null,
   ContactName varchar(30),
+  ContactTitle varchar(30),
   Address varchar(60),
   City varchar(15),
   Region varchar(15),
@@ -189,9 +190,9 @@ create table Orders (
   OrderID int primary key,
   CustomerID int references Customers(CustomerID),
   EmployeeID int references Employees(EmployeeID),
-  OrderDate date,
-  RequiredDate date,
-  ShippedDate date,
+  OrderDate varchar(15),
+  RequiredDate varchar(15),
+  ShippedDate varchar(15),
   ShipVia int references Shippers(ShipperID),
   Freight int,
   ShipName varchar(40),
@@ -199,8 +200,7 @@ create table Orders (
   ShipCity varchar(15),
   ShipRegion varchar(15),
   ShipPostalCode varchar(10),
-  ShipCountry int references Countries(CountryID),
-  ShipperID int
+  ShipCountry int references Countries(CountryID)
 );
 
 create table Order_Details (
