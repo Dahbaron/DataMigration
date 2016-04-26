@@ -17,49 +17,59 @@ order by table_name;
 */
 
 --Categories
-select Count(categories.categoryid) as "Updated Category Count", Count(northwindOLD.categories.categoryID) as "Old Category Count"
-from northwindOLD.categories;
+select Count(northwind.categories.categoryid) as "Updated Category Count", Count(northwindOLD.categories.categoryID) as "Old Category Count"
+from northwind.categories
+full join northwindOLD.categories on northwind.categories.categoryid = northwindOLD.categories.categoryid;
 
 --Customers
-select Count(Customers.Customerid) as "Updated Customer Count", Count(northwindOLD.Customers.CustomerID) as "Old Customer Count"
-from northwindOLD.Customers;
+select Count(northwind.Customers.Customerid) as "Updated Customer Count", Count(northwindOLD.Customers.CustomerID) as "Old Customer Count"
+from northwind.Customers
+full join northwindOLD.Customers on northwind.Customers.customercode = northwindOLD.Customers.customerid;
 
 --Employees
-select Count(Employees.EmployeeID) as "Updated Employee Count", Count(northwindOLD.Employees.EmployeeID) as "Old Employee Count"
-from northwindOLD.Employees;
+select Count(northwind.Employees.EmployeeID) as "Updated Employee Count", Count(northwindOLD.Employees.EmployeeID) as "Old Employee Count"
+from northwind.Employees
+full join northwindOLD.Employees on northwind.Employees.EmployeeID = northwindOLD.Employees.EmployeeID;
 
 --EmployeeTerritories
-select Count(EmployeeTerritories.EmployeeID) as "Updated Count", 
-  Count(northwindOLD.EmployeeTerritories.EmployeeID) as "Old Count"
-from northwindOLD.EmployeeTerritories;
+select Count(northwind.EmployeeTerritories.EmployeeID) as "Updated Count", Count(northwindOLD.EmployeeTerritories.EmployeeID) as "Old Count"
+from northwind.EmployeeTerritories
+full join northwindOLD.EmployeeTerritories on northwind.EmployeeTerritories.EmployeeID = northwindOLD.EmployeeTerritories.EmployeeID;
 
 --Order_Details
-select Count(Order_Details.OrderID) as "Updated Count", Count(northwindOLD.Order_Details.OrderID) as "Old Count"
-from northwindOLD.Order_Details;
+select Count(northwind.Order_Details.OrderID) as "Updated Count", Count(northwindOLD.Order_Details.OrderID) as "Old Count"
+from northwind.Order_Details
+full join northwindOLD.Order_Details on northwind.Order_Details.OrderID = northwindOLD.Order_Details.OrderID;
 
 --Orders
-select Count(Orders.OrderID) as "Updated Order Count", Count(northwindOLD.Orders.OrderID) as "Old Order Count"
-from northwindOLD.Orders;
+select Count(northwind.Orders.OrderID) as "Updated Order Count", Count(northwindOLD.Orders.OrderID) as "Old Order Count"
+from northwind.Orders
+full join northwindOLD.Orders on northwind.Orders.OrderID = northwindOLD.Orders.OrderID;
 
 --Products
-select Count(Products.ProductID) as "Updated Product Count", Count(northwindOLD.Products.ProductID) as "Old Product Count"
-from northwindOLD.Products;
+select Count(northwind.Products.ProductID) as "Updated Product Count", Count(northwindOLD.Products.ProductID) as "Old Product Count"
+from northwind.Products
+full join northwindOLD.Products on northwind.Products.ProductID = northwindOLD.Products.ProductID;
 
 --Region
-select Count(Region.RegionID) as "Updated Region Count", Count(northwindOLD.Region.RegionID) as "Old Region Count"
-from northwindOLD.Region;
+select Count(northwind.Region.RegionID) as "Updated Region Count", Count(northwindOLD.Region.RegionID) as "Old Region Count"
+from northwind.Region
+full join northwindOLD.Region on northwind.Region.RegionID = northwindOLD.Region.RegionID;
 
 --Shippers
-select Count(Shippers.ShipperID) as "Updated Shipper Count", Count(northwindOLD.Shippers.ShipperID) as "Old Shipper Count"
-from northwindOLD.Shippers;
+select Count(northwind.Shippers.ShipperID) as "Updated Shipper Count", Count(northwindOLD.Shippers.ShipperID) as "Old Shipper Count"
+from northwind.Shippers
+full join northwindOLD.Shippers on northwind.Shippers.ShipperID = northwindOLD.Shippers.ShipperID;
 
 --Suppliers
-select Count(Suppliers.SupplierID) as "Updated Supplier Count", Count(northwindOLD.Suppliers.SupplierID) as "Old Supplier Count"
-from northwindOLD.Suppliers;
+select Count(northwind.Suppliers.SupplierID) as "Updated Supplier Count", Count(northwindOLD.Suppliers.SupplierID) as "Old Supplier Count"
+from northwind.Suppliers
+full join northwindOLD.Suppliers on northwind.Suppliers.SupplierID = northwindOLD.Suppliers.SupplierID;
 
 --Territories
-select Count(Territories.TerritoryID) as "Updated Territory Count", Count(northwindOLD.Territories.TerritoryID) as "Old Territory Count"
-from northwindOLD.Territories;
+select Count(northwind.Territories.TerritoryID) as "Updated Territory Count", Count(northwindOLD.Territories.TerritoryID) as "Old Territory Count"
+from northwind.Territories
+full join northwindOLD.Territories on northwind.Territories.TerritoryID = northwindOLD.Territories.TerritoryID;
 
 
 /*
