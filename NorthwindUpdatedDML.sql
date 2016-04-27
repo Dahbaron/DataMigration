@@ -35,6 +35,7 @@ insert into Warehouses values (WarehouseID_seq.nextval, 'Dockside warehouse', '2
 insert into Warehouses values (WarehouseID_seq.nextval, 'Central warehouse', '27 Main St.');
 
 --Countries
+--This grabs all Countries used in every table and puts it into one unified table.
 insert into Countries (CountryID, CountryName)
 select CountryID_seq.nextval, Country from
   (select northwindOLD.customers.country
